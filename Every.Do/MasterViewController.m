@@ -8,6 +8,8 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "ToDo.h"
+#import "toDoViewCell.h"
 
 @interface MasterViewController ()
 
@@ -18,7 +20,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    ToDo *lightHouseAssignment1 = [[ToDo alloc]initWithName:@"2Player-Math" description:@"2Player Math Game in Objective C" priorityNumber:1];
+    ToDo *lighthouseAssignment2 = [[ToDo alloc]initWithName:@"My own Scrollview" description:@"Programmatically Create scrollview using UIView" priorityNumber:2];
+    ToDo *lighthouseAssignment3 = [[ToDo alloc]initWithName:@"Finger-Paint app" description:@"paint with a UIBezierPath" priorityNumber:3];
+    
+    self.objects = [NSMutableArray array];
+    [self.objects addObject:lightHouseAssignment1];
+    [self.objects addObject:lighthouseAssignment2];
+    [self.objects addObject:lighthouseAssignment3];
+    
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
@@ -64,10 +79,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    
+    NSLog(@"section: %ld, row: %ld", (long)indexPath.section, (long)indexPath.row);
+    toDoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ToDo *todos = self.objects[indexPath.row];
+    
+    NSString *name = todos.name;
+    NSString *toDoDescription = todos.toDoDescription;
+    NSString *priorityNumber = [NSString stringWithFormat:@"%i", todos.priorityNumber];
+    
+    cell.titleLabel.text = name;
+    cell.subtitleLabel.text = toDoDescription;
+    cell.priorityNumberLabel.text = priorityNumber;
+    
+    
     return cell;
 }
 

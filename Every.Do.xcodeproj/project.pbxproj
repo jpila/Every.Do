@@ -17,7 +17,8 @@
 		ABF944051D3569AD00823FE1 /* Every_DoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF944041D3569AD00823FE1 /* Every_DoTests.m */; };
 		ABF944101D3569AD00823FE1 /* Every_DoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9440F1D3569AD00823FE1 /* Every_DoUITests.m */; };
 		ABF9441F1D3569D300823FE1 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9441E1D3569D300823FE1 /* ToDo.m */; };
-		ABF944251D35731500823FE1 /* toDoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF944241D35731500823FE1 /* toDoViewCell.m */; };
+		ABF944251D35731500823FE1 /* ToDoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF944241D35731500823FE1 /* ToDoViewCell.m */; };
+		ABF9448A1D37350900823FE1 /* AddTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF944891D37350900823FE1 /* AddTodoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +59,10 @@
 		ABF944111D3569AD00823FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABF9441D1D3569D300823FE1 /* ToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDo.h; sourceTree = "<group>"; };
 		ABF9441E1D3569D300823FE1 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
-		ABF944231D35731500823FE1 /* toDoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = toDoViewCell.h; path = ../toDoViewCell.h; sourceTree = "<group>"; };
-		ABF944241D35731500823FE1 /* toDoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = toDoViewCell.m; path = ../toDoViewCell.m; sourceTree = "<group>"; };
+		ABF944231D35731500823FE1 /* ToDoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToDoViewCell.h; path = ../ToDoViewCell.h; sourceTree = "<group>"; };
+		ABF944241D35731500823FE1 /* ToDoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToDoViewCell.m; path = ../ToDoViewCell.m; sourceTree = "<group>"; };
+		ABF944891D37350900823FE1 /* AddTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTodoViewController.m; sourceTree = "<group>"; };
+		ABF944CD1D37EB5700823FE1 /* AddTodoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTodoViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,13 +115,15 @@
 			children = (
 				ABF943EA1D3569AD00823FE1 /* AppDelegate.h */,
 				ABF943EB1D3569AD00823FE1 /* AppDelegate.m */,
-				ABF944231D35731500823FE1 /* toDoViewCell.h */,
-				ABF944241D35731500823FE1 /* toDoViewCell.m */,
+				ABF944231D35731500823FE1 /* ToDoViewCell.h */,
+				ABF944241D35731500823FE1 /* ToDoViewCell.m */,
 				ABF943ED1D3569AD00823FE1 /* MasterViewController.h */,
 				ABF943EE1D3569AD00823FE1 /* MasterViewController.m */,
 				ABF943F01D3569AD00823FE1 /* DetailViewController.h */,
 				ABF943F11D3569AD00823FE1 /* DetailViewController.m */,
 				ABF943F31D3569AD00823FE1 /* Main.storyboard */,
+				ABF944CD1D37EB5700823FE1 /* AddTodoViewController.h */,
+				ABF944891D37350900823FE1 /* AddTodoViewController.m */,
 				ABF9441D1D3569D300823FE1 /* ToDo.h */,
 				ABF9441E1D3569D300823FE1 /* ToDo.m */,
 				ABF943F61D3569AD00823FE1 /* Assets.xcassets */,
@@ -289,8 +294,9 @@
 				ABF943EC1D3569AD00823FE1 /* AppDelegate.m in Sources */,
 				ABF943EF1D3569AD00823FE1 /* MasterViewController.m in Sources */,
 				ABF943E91D3569AD00823FE1 /* main.m in Sources */,
-				ABF944251D35731500823FE1 /* toDoViewCell.m in Sources */,
+				ABF944251D35731500823FE1 /* ToDoViewCell.m in Sources */,
 				ABF943F21D3569AD00823FE1 /* DetailViewController.m in Sources */,
+				ABF9448A1D37350900823FE1 /* AddTodoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +520,7 @@
 				ABF944161D3569AD00823FE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ABF944171D3569AD00823FE1 /* Build configuration list for PBXNativeTarget "Every.DoTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +529,7 @@
 				ABF944191D3569AD00823FE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ABF9441A1D3569AD00823FE1 /* Build configuration list for PBXNativeTarget "Every.DoUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +538,7 @@
 				ABF9441C1D3569AD00823FE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

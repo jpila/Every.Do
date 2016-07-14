@@ -28,7 +28,7 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [NSString stringWithFormat:@"%@\n,%@\n,\n%i",self.detailItem.name ,self.detailItem.toDoDescription, self.detailItem.priorityNumber];
+        self.detailDescriptionLabel.text = [NSString stringWithFormat:@"Title: %@\nDescription: %@\n Prioritynumber: %d \n",self.detailItem.name ,self.detailItem.toDoDescription, self.detailItem.priorityNumber];
     }
 }
 

@@ -9,11 +9,12 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "ToDo.h"
-#import "toDoViewCell.h"
+#import "ToDoViewCell.h"
+#import "AddTodoViewController.h"
 
-@interface MasterViewController ()
+@interface MasterViewController () <AddTodoViewControllerDelegate>
 
-@property NSMutableArray *objects;
+@property (nonatomic) NSMutableArray *objects;
 @end
 
 @implementation MasterViewController
@@ -36,7 +37,7 @@
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newToDoInputViewController:)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
@@ -48,21 +49,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender {
-    if (!self.objects) {
-        self.objects = [[NSMutableArray alloc] init];
-    }
-    [self.objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+- (void)newToDoInputViewController:(id)sender {
+    
+    TodoInputViewController *todoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TodoInputViewController"];
+    [self presentViewController:todoViewController animated:YES completion:nil];
+    todoViewController.delegate = self ;
+    
 }
-
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        ToDo *object = self.objects[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
         [controller setDetailItem:object];
     }
@@ -81,7 +80,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"section: %ld, row: %ld", (long)indexPath.section, (long)indexPath.row);
-    toDoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ToDoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     ToDo *todos = self.objects[indexPath.row];
     
     NSString *name = todos.name;
@@ -108,6 +107,12 @@
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
+}
+
+#pragma mark - delegate method
+-(void)didSaveNewTodo:(ToDo *)todo {
+    [self.objects addObject:todo];
+    [self.tableView reloadData];
 }
 
 @end

@@ -10,7 +10,7 @@
 #import "ToDo.h"
 
 
-@interface toDoViewCell : UITableViewCell 
+@interface ToDoViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 

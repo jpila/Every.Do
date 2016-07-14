@@ -6,9 +6,9 @@
 //  Copyright © 2016 JOSE PILAPIL. All rights reserved.
 //
 
-#import "toDoViewCell.h"
+#import "ToDoViewCell.h"
 
-@implementation toDoViewCell
+@implementation ToDoViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
